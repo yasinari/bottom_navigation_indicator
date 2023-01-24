@@ -10,7 +10,9 @@ class FirstExample extends StatefulWidget {
 
 class _FirstExampleState extends State<FirstExample> {
   final _items = _ExampleFeatures();
-  final _selectedColor = Colors.deepPurple;
+  final _selectedColor = Colors.blue;
+  final _unselectedColor = Colors.white;
+  final _bnBackColor = Colors.transparent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,8 @@ class _FirstExampleState extends State<FirstExample> {
           _items._bottomBarTitle,
           _items._bottomIcons,
           _selectedColor,
-          Colors.white,
-          Colors.transparent,
+          _unselectedColor,
+          _bnBackColor,
           _items._pages),
     );
   }
