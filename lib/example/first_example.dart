@@ -47,23 +47,65 @@ class _ExampleFeatures {
   final List<Widget> _pages = [
     const Scaffold(
       body: Center(
-        child: Text("Home"),
+        child: _ExampleCard(
+          title: "Home",
+          color: LinearGradient(colors: [
+            Color(0xff0f0c29),
+            Color(0xff302b63),
+            Color(0xff24243e),
+          ]),
+        ),
       ),
     ),
     const Scaffold(
       body: Center(
-        child: Text("Categories"),
+        child: _ExampleCard(
+          title: "Categories",
+          color: LinearGradient(colors: [Colors.red, Colors.black]),
+        ),
       ),
     ),
     const Scaffold(
       body: Center(
-        child: Text("Market"),
+        child: _ExampleCard(
+          title: "Market",
+          color: LinearGradient(colors: [Colors.red, Colors.black]),
+        ),
       ),
     ),
     const Scaffold(
       body: Center(
-        child: Text("Profile"),
+        child: _ExampleCard(
+          title: "Profile",
+          color: LinearGradient(colors: [Colors.red, Colors.black]),
+        ),
       ),
     ),
   ];
+}
+
+class _ExampleCard extends StatelessWidget {
+  const _ExampleCard({String? title, LinearGradient? color})
+      : _title = title,
+        _color = color;
+
+  final String? _title;
+  final LinearGradient? _color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.8,
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: _color, borderRadius: BorderRadius.circular(25)),
+        child: Center(
+            child: Text(
+          _title ?? "",
+          style: Theme.of(context).textTheme.headline3,
+        )),
+      ),
+    );
+  }
 }
